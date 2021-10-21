@@ -1,0 +1,23 @@
+<!-- Clinic and Specialities -->
+			<section class="section section-specialities ">
+				<div class="container">
+					<div class="section-header text-center">
+						<h2>Clinic and Specialities</h2>
+						<p class="sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					</div>
+
+					<div class="row justify-content-around">
+						<div class="col-md-3" *ngFor="let clinic of clinics">
+							<div class="peicality-item text-center">
+								<div class="speicality-img">
+									<img src="assets/img/specialities/{{clinic.image}}" class="img-fluid" alt="Speciality">
+									<span><i class="fa fa-circle" aria-hidden="true"></i></span>
+								</div>
+								<p class="">{{clinic.name}}</p>
+							</div>
+						</div>
+						
+					</div>
+				</div>   
+			</section>	 
+			<!-- Clinic and Specialities -->

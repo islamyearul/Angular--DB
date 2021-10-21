@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <h1 class="text-white">Angular Crud</h1>
         <div class="d-flex">
-            <button  type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success">Add Employee</button>
+            <button (click)="clickAddEmploye()"  type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success">Add Employee</button>
         </div>
     </div>
 </nav>
@@ -20,16 +20,16 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>01</td>
-            <td>Yearul </td>
-            <td>Islam</td>
-            <td>44545454545</td>
-            <td>fsh@fd.com</td>
-            <td>$ 05, 000.00</td>
+        <tr *ngFor="let row of employeeData">
+          <td>{{row.id}}</td>
+          <td>{{row.firstname}}</td>
+          <td>{{row.lastname}}</td>
+          <td>{{row.mobile}}</td>
+          <td>{{row.email}}</td>
+          <td>{{row.salary}}</td>
             <td>
-                <button class="btn btn-info bg-info">Edit</button>
-                <button class="btn btn-danger mx-3 bg-danger">Delete</button>
+                <button type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info bg-info" (click)="onEdit(row)">Edit</button>
+                <button class="btn btn-danger mx-3 bg-danger" (click)="deleteEmployeeData(row)">Delete</button>
             </td>
         </tr>
     </tbody>
@@ -48,29 +48,30 @@
             <form [formGroup] ="formValue">
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">First Name</label>
-                  <input type="text" class="form-control" fornControlName="firstname" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <input type="text" class="form-control" formControlName="firstname" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Last Name</label>
-                  <input type="text" class="form-control" fornControlName="lastname" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <input type="text" class="form-control" formControlName="lastname" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label">Mobile</label>
-                  <input type="number" class="form-control" fornControlName="mobile" id="exampleInputPassword1">
+                  <input type="number" class="form-control" formControlName="mobile" id="exampleInputPassword1">
                 </div>
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label">Emails</label>
-                  <input type="email" class="form-control" fornControlName="email" id="exampleInputPassword1">
+                  <input type="email" class="form-control" formControlName="email" id="exampleInputPassword1">
                 </div>
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label">Salary</label>
-                  <input type="number" class="form-control" fornControlName="salary" id="exampleInputPassword1">
+                  <input type="number" class="form-control" formControlName="salary" id="exampleInputPassword1">
                 </div>
               </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Add</button>
+          <button type="button" id="cancle" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" *ngIf="showAdd" (click)="postEmployeeDetails()" class="btn btn-primary">Add</button>
+          <button type="button" *ngIf="showUpdate" (click)="updateEmployeeDetails()" class="btn btn-primary">Update</button>
         </div>
       </div>
     </div>

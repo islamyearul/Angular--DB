@@ -1,0 +1,29 @@
+
+
+ <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="text-center">Add Students</h2>
+            <form [formGroup]="addForm" class="form">
+                  <div class="form-group col-md-6">
+                    <label for="stid">Student Id:</label>
+                    <input formControlName="std_id" type="text" class="form-control" id="stid" placeholder="Student Id">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="fname">Student First Name:</label>
+                    <input formControlName="std_first_name" type="text" class="form-control" id="fname" placeholder="Student First Name">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="lname">Student Last Name:</label>
+                    <input formControlName="std_last_name" type="text" class="form-control" id="lname" placeholder="Student Last Name">
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label for="email">Student Last Name:</label>
+                    <input formControlName="std_email" type="email" class="form-control" id="email" placeholder="Student Email">
+                  </div>
+                 <button class="btn btn-success"  (click)="onSubmit()">Save</button>
+              </form>
+        </div>
+    </div>
+</div>
